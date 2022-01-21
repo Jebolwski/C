@@ -39,5 +39,23 @@ int main(void)
     for(i=0;i<10;i++){
         printf("%i\n",array[i]);
     }
+
+    printf("\n");
+
+    int a=10;
+    int *p;
+    p=&a;
+    *p=*p+10;
+    printf("Adress of a with '&a': %d\nValue of 'a' with *p: %d\nAdress of a with 'p': %d",&a,*p,p);
+    FILE* ali;
+    ali=fopen("C:/Users/mertg/OneDrive/Masaüstü/Dosya/Programming/c/hello.txt","r");
+    fputs("Ali HELLLO!",ali);
+    char ch=fgetc(ali);
+    fclose(ali);
+
+    
+    
     getch();
+
+
 }
