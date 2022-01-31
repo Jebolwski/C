@@ -35,5 +35,21 @@ int main(void){
     printf("%s %s\n",khabib.name,khabib.surname);
     printf("Age:%i Fight IQ: %i\n",khabib.age,khabib.fiq);
     printf("Wrestling: %i\n",khabib.wrestling);
-    getch();
+    int arr[] = {1,2,3};
+    printf("%d,%d,%d\n",arr,&arr[1],&arr[2]);
+    for(int i = 1;i<10;i++){
+        printf("%d-",i);
+        for(int j=10;j>i;j--){
+            printf("|");
+        }
+        printf("\n");
+    }
+    for(int i = 1;i<10;i++){
+        printf("%d-",i);
+        for(int j=0;j<i;j++
+        ){
+            printf("|");
+        }
+        printf("\n");
+    }
 }
