@@ -1,11 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
+typedef struct n n;
 
-typedef struct{
+struct n{
     int x;
     n *next;
-}n;
+};
 
 typedef n node;
 
