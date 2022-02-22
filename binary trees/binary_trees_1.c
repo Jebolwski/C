@@ -22,7 +22,7 @@ int ekle(int b){
         root->x=b;
         root->sag=NULL;
         root->sol=NULL;
-        return 1;
+        return 0;
     }
     iter=root;
     while(iter->sag!=NULL && iter->sol!=NULL){
@@ -47,21 +47,48 @@ int ekle(int b){
     }
 }
 
-
 int bastir(){
     if(root==NULL){
         printf("Ağaç Boş...");
         return 0;
+    iter=root;
+    while(iter->sag!=NULL){
+        printf("%d",iter->x);
+        iter=iter->sag;
+    }
     bastir(root->sag);
     printf("%d ",root->x);
     bastir(root->sol);
     }
 }
 
+int sil(int b){
+    if(root==NULL){
+        printf("Ağaç Boş...");
+        return 0;
+    }
+    iter=root;
+    while(iter->sol->x!=b || iter->sag->x!=b){
+        if(b > iter->x){
+            iter=iter->sol;
+        }
+        else{
+            iter=iter->sag;
+        }
+    }
+    if (iter->sag->x==b) {
+        iter->sag=NULL;
+    }
+    else if (iter->sol->x==b){
+        iter->sol=NULL;
+    }
+    else{
+        printf("Bulunamadı...\n");
+        return 0;
+    }
+}
+
 int main(void){
     ekle(20);
-    ekle(25);
-    bastir();
-    ekle(30);
-    bastir();
+    sil(30);
 }
