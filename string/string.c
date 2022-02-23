@@ -13,6 +13,5 @@
     strcpy(ch3,ch2);
     printf("%s",ch3);
 
-    getch();
 
  }
