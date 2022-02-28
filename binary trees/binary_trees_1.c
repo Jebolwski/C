@@ -19,27 +19,32 @@ a *iter;
 int ekle(int b){
     if(root==NULL){
         root = (a*)malloc(sizeof(a));
-        root->x=b;
-        root->sag=NULL;
-        root->sol=NULL;
+        root->x = b;
+        root->sag = NULL;
+        root->sol = NULL;
         return 0;
     }
     iter=root;
-    while(iter->sag!=NULL && iter->sol!=NULL){
-        if(b > iter->x){
+    while(iter->sag!=NULL && iter->sol!=NULL)
+    {
+        if(b > iter->x)
+        {
             iter=iter->sag;
         }
-        else{
+        else
+        {
             iter=iter->sol;
         }
     }
-    if(b > iter->x){
+    if(b > iter->x)
+    {
         iter->sag = (a*)malloc(sizeof(a));
         iter->sag->x = b;
         iter->sag->sag = NULL;
         iter->sag->sol = NULL;
     }
-    else{
+    else
+    {
         iter->sol = (a*)malloc(sizeof(a));
         iter->sol->x = b;
         iter->sol->sag = NULL;
@@ -47,9 +52,9 @@ int ekle(int b){
     }
 }
 
-int bastir(){
+a *bastir(a *root){
     if(root==NULL){
-        printf("Ağaç Boş...");
+        printf("Ağaç Boş...\n");
         return 0;
     iter=root;
     while(iter->sag!=NULL){
@@ -63,32 +68,42 @@ int bastir(){
 }
 
 int sil(int b){
-    if(root==NULL){
+    if(root==NULL)
+    {
         printf("Ağaç Boş...");
         return 0;
     }
     iter=root;
-    while(iter->sol->x!=b || iter->sag->x!=b){
-        if(b > iter->x){
+    while(iter->sol->x!=b || iter->sag->x!=b || iter->x!=b)
+    {
+        if(b > iter->x)
+        {
             iter=iter->sol;
         }
-        else{
+        else
+        {
             iter=iter->sag;
         }
     }
-    if (iter->sag->x==b) {
+    if (iter->sag->x==b) 
+    {
         iter->sag=NULL;
     }
-    else if (iter->sol->x==b){
+    else if (iter->sol->x==b)
+    {
         iter->sol=NULL;
     }
-    else{
+    else
+    {
         printf("Bulunamadı...\n");
         return 0;
     }
 }
 
-int main(void){
-    ekle(20);
-    sil(30);
+int main(void)
+{
+    bastir(root);
+    ekle(10);
+    sil(12);
+    bastir(root);
 }
