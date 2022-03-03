@@ -11,44 +11,43 @@ struct n{
 
 typedef n node;
 
-node *root;
-node *iter;
-node *temp;
-node *temp1;
+node *root=NULL;
+node *iter=NULL;
+node *temp=NULL;
+node *temp1=NULL;
 
 
-int ekle(node *root,int a ){
+int ekle(int a){
     if (root==NULL){
         root=(node *)malloc(sizeof(node));
-        printf("Root Oluştu \n");
         root->x=a;
         root->next=root;
-        printf("Rootun adresi: %i \n",root);
-        printf("Rootun içindeki değer: %i \n",root->x);
-        return 0;
+        return 1;
     }
-    if(root->next=root){
+    
+    else{ 
+
+        if(root->next==root){
         root->next=(node *)malloc(sizeof(node));
         root->next->next=root;
         root->next->x=a;
-        printf("Rootun nexti oluşturuldu.\n");
-    }
-    else{
-        iter=root;
-        while(iter->next!=root){
-            iter=iter->next;
         }
-        printf("Geldik1\n");
-        iter->next=(node *)malloc(sizeof(node));
-        iter->next->x=a;
-        iter->next->next=root;
-        
+
+        else{
+            iter=root;
+            while(iter->next!=root){
+                iter=iter->next;
+            }
+            iter->next=(node *)malloc(sizeof(node));
+            iter->next->x=a;
+            iter->next->next=root;
+
+        }
     }
     return 0;
 }
 
-
-int sil(node *root,int a){
+int sil(int a){
     if(root==NULL){
         printf("Silinemiyor - Liste Boş...\n");
     }
@@ -56,6 +55,10 @@ int sil(node *root,int a){
         iter=root;
         while(iter->next->x!=a){
             iter=iter->next;
+            if (iter->next->next=root){
+                printf("Bulunamadı...\n");
+                return 1;
+            }
         }
         if(iter->next->x==a){
         temp1=iter->next;
@@ -76,9 +79,10 @@ int bastir(node *root){
         return 0;
     }
     iter=root;
+    printf("Liste : %i ",iter->x);
     while(iter->next!=root){
         iter=iter->next;
-        printf("%i",iter->x);
+        printf("%i ",iter->x);
     }
     return 0;
 
@@ -86,8 +90,12 @@ int bastir(node *root){
 
 
 int main(){
-    ekle(root,1);
-    ekle(root,2);
-    ekle(root,3);
+    for(int i=1;i<=5;i++){
+        ekle(i);
+    }
+    sil(2);
+    sil(1);
+    sil(3);
+    bastir(root);
     
 }
