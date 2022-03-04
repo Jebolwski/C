@@ -48,15 +48,23 @@ int ekle(int a){
 }
 
 int sil(int a){
+    if(root->x==a){
+        root=root->next;
+    }
     if(root==NULL){
         printf("Silinemiyor - Liste Boş...\n");
     }
     else{
         iter=root;
+        if(root->x==a){
+            temp = root;
+            root=root->next;
+            free(temp);
+        }
         while(iter->next->x!=a){
             iter=iter->next;
-            if (iter->next->next=root){
-                printf("Bulunamadı...\n");
+            if (iter->next=root){
+                printf("Bulunamadı... - %i\n",a);
                 return 1;
             }
         }
@@ -66,14 +74,11 @@ int sil(int a){
         iter->next=temp;
         free(temp1);
         }
-        else{
-            printf("Bulunamadı...\n");
-        }
     }
     return 0;
 }
 
-int bastir(node *root){
+int bastir(){
     if(root==NULL){
         printf("Liste Boş...\n");
         return 0;
@@ -90,12 +95,8 @@ int bastir(node *root){
 
 
 int main(){
-    for(int i=1;i<=5;i++){
-        ekle(i);
-    }
-    sil(2);
     sil(1);
-    sil(3);
-    bastir(root);
+    ekle(4);
+    bastir();
     
 }
