@@ -7,9 +7,9 @@ int main(void){
     FILE *filewrite,*fileread,*fw;
     char mrt[4]="mert";
     char mlh[5]="melih";
-    int a =100;
-    int b =200;
-    int c =300;
+    int a = 100;
+    int b = 200;
+    int c = 300;
     filewrite = fopen("files.txt","w");
     fprintf(filewrite,"%s %d %d",mlh,a,b);
     fclose(filewrite);
