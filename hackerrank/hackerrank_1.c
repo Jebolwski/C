@@ -191,3 +191,39 @@ int main()
       }
     return 0;
 }
+
+// https://www.hackerrank.com/challenges/sum-of-digits-of-a-five-digit-number/
+
+int main() {
+	
+    int n;
+    scanf("%d", &n);
+    int birler = n%10;
+    int onlar = (n%100-birler)/10;
+    int yuzler = (n%1000-n%100)/100;
+    int binler = (n%10000-n%1000)/1000;
+    int onbinler = (n/10000);
+    int sonuc = birler+onlar+yuzler+binler+onbinler;
+    printf("%d",sonuc);
+    return 0;
+}
+
+// hackerrank.com/challenges/1d-arrays-in-c/
+
+int main()
+{
+    int n, *arr, i, sum = 0;
+    scanf("%d", &n);
+    arr = (int*) malloc(n * sizeof(int));
+    for(i = 0; i < n; i++) {
+        scanf("%d", arr + i);
+    }
+
+    for(i = 0; i < n; i++) {
+        sum += *(arr + i);
+    }
+
+    printf("%d\n", sum);
+    free(arr);
+    return 0;
+}
