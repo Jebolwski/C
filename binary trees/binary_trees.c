@@ -11,24 +11,23 @@ struct n{
     n *sag;
 };
 
-typedef n node;
+typedef n tree;
 
-node *root;
-node *iter;
-node *temp;
+tree *root;
+tree *iter;
+tree *temp;
 
-bool ekle(node *root,int a){
+void ekle(tree *root,int a){
     if(root==NULL){
-        root = (node *)malloc(sizeof(node));
+        root = (tree *)malloc(sizeof(tree));
         root->x=a;
         root->sag=NULL;
         root->sol=NULL;
-        return false;
     }
     else{
         if(a>root->x){
             if(root->sag==NULL){
-                root->sag=(node *)malloc(sizeof(node));
+                root->sag=(tree *)malloc(sizeof(tree));
                 root->sag->x=a;
             }
             else{
@@ -37,7 +36,7 @@ bool ekle(node *root,int a){
         }
         if(a<root->x){
             if(root->sol==NULL){
-                root->sol=(node *)malloc(sizeof(node));
+                root->sol=(tree *)malloc(sizeof(tree));
                 root->sol->x=a;
             }
             else{
@@ -47,8 +46,8 @@ bool ekle(node *root,int a){
     }
 }
 
-bool dolas(node *root){
-    if (root==NULL){
+bool dolas(tree *root){
+    if(root==NULL){
         return false;
     }
     dolas(root->sol);
