@@ -21,18 +21,38 @@ int main(){
         printf("\n");
     }
     printf("*");
+    printf("\n");
     for(a=0;a<10;a++){
         printf(" ");
         for(b=10;b>a;b--){
-            printf(" ");
+            printf("*");
         }
         for (int i = 0; i < 4*a; i=i+2){
-            printf("*");
+            printf(" ");
         }
         for(int c=10;c>a;c--)
         {
-            printf(" ");
+            printf("*");
         }
         printf("\n");
     }
+
+    for(a=0;a<10;a++){
+        printf(" ");
+        for(b=0;b<a;b++){
+            printf("*");
+        }
+        for(int i=60;i>6*a;i=i-3){
+            printf(" ");
+        }
+        for (int c = 0; c < a; c++)
+        {
+            printf("*");
+        }
+        printf("\n");
+        
+    }
+
+
+
 }
