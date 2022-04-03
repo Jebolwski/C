@@ -115,6 +115,66 @@ int main(){
 }
 
 
+#include <stdio.h>
+#include <math.h>
+int main(){
+    int a=4, b=6; double c;
+    b += a; 
+    a *= b;
+    c = sqrt(a*b);
+    printf("%lf", c);
+}
+// b=10
+// a=40
+// c=20
+// çıktı = 20.00 
 
 
+#include <stdio.h>
+int main() {
+    int a=7, b=4, c=1;
+     while(a>b) {
+     c *= b;
+     b++;
+     }
+    printf("%d", c);
+}
+// a b
+// 7 4 c=4*1
+// 7 5 c=4*5
+// 7 6 c=20*6
+// çıktı=120
+
+
+#include <stdio.h>
+int main() {
+    int i, j, x=5, y=8;
+    for(i=3;i<9;i+=2) {
+        for(j=20;j>0;j-=5) {
+            if((i*j)%10==0) continue;
+            else if(i>j) x *= 2;
+            else if(j>i) y += 2;
+            else y += x;
+        }
+    }
+    printf("%d",x*y);
+}
+// i j   i*j  x  y
+// 3 20  60   5  10  
+// 3 15  45   5  12
+// 3 10  30   5  12
+// 3 5   15   5  14
+
+
+// 5 20  100  5  14  
+// 5 15  75   5  16
+// 5 10  50   5  16
+// 5 5   25   5  18
+
+
+// 7 20  140  5  18
+// 7 15  105  5  20  
+// 7 10  70   5  20
+// 7 5   25   10 20
+// çıktı = 200
 
