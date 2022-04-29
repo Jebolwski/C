@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <conio.h>
 
 
 
@@ -35,30 +36,37 @@ int main(){
         printf("\nMedyan : %d\n",dizi[uzunluk/2]);
     }
     else{
-        printf("\nMedyan : %d\n",(dizi[uzunluk/2]+dizi[(uzunluk/2)-1])/2);
+        printf("\nMedyan : %.2f\n",( dizi[uzunluk/2]+dizi[(uzunluk/2)-1])/2.00);
     }
     int counter=0;    
     int mod=0; 
-    int mod_deg;   
+    int mod_deger=0; 
+    int temp_mod=0; 
     for (int i = 0; i < uzunluk; i++)
     {
         for (int j = 0; j < uzunluk; j++)
         {
             if(dizi[i]==dizi[j]){
-                counter++;
+                temp_mod++;
             }
         }
-        if(counter>mod){
-            mod_deg=dizi[i];
-            int temp=counter;
-            counter=mod;
-            mod=temp;
+        if(temp_mod>mod){
+            mod=temp_mod;
+            mod_deger=dizi[i];
         }
-        
+        temp_mod=0;
     }
-    printf("Modu : %d",mod_deg);
-    
+    printf("Dizinin modu : %d\n",mod_deger);
+    printf("Modun tekrar sayisi : %d\n",mod);
 
-
+    printf("Dizinin en buyuk elemani : %d\n",dizi[uzunluk-1]);
+    printf("Dizinin en kucuk elemani : %d\n",dizi[0]);
+    int toplam=0;
+    for (int i = 0; i < uzunluk; i++)
+    {
+        toplam+=dizi[i];
+    }
+    printf("Dizinin aritmetik ortalamasi : %.2f",(double) toplam/uzunluk);
+    getch();
 
 }
