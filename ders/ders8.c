@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
+#include <math.h>
 
 
 
@@ -67,6 +68,32 @@ int main(){
         toplam+=dizi[i];
     }
     printf("Dizinin aritmetik ortalamasi : %.2f",(double) toplam/uzunluk);
+    float standart_sapma_ic=0;
+    for (int i = 0; i < uzunluk; i++)
+    {
+        standart_sapma_ic = pow(dizi[i]-(double) toplam/uzunluk,2);
+    }
+    printf("\nStandart sapma : %f\n",sqrt( (double) standart_sapma_ic/uzunluk-1));
+
+    for (int i = 0; i < uzunluk; i++)
+    {
+        for (int j = i+1; j < uzunluk; j++)
+        {
+            if(dizi[i]==dizi[j]){
+                dizi[i]='\0';
+            }
+        }
+    }
+    printf("Tekrarsiz elemanlar : ");
+    for (int i = 0; i < uzunluk; i++)
+    {
+        if(dizi[i]!='\0'){
+            printf("%d ",dizi[i]);
+        }
+    }
+    
+    
+    
     getch();
 
 }
