@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 typedef struct n n;
 
@@ -18,7 +19,7 @@ int ekle(int num)
     iter = root;
     if (root == NULL)
     {
-        root = (n *)malloc(sizeof(n));
+        root = (node *)malloc(sizeof(node));
         root->x = num;
         root->next = root;
     }
@@ -28,7 +29,7 @@ int ekle(int num)
         {
             iter = iter->next;
         }
-        iter->next = (n *)malloc(sizeof(n));
+        iter->next = (node *)malloc(sizeof(node));
         iter->next->x = num;
         iter->next->next = root;
     }
@@ -43,12 +44,13 @@ int sil(int num)
     }
     else
     {
-        while (iter->next->x == num)
+        while (iter->next->x != num)
         {
             iter = iter->next;
         }
-        iter->next = NULL;
+        node *a = iter->next;
         iter->next = iter->next->next;
+        free(a);
     }
 }
 
@@ -58,10 +60,6 @@ int bastir()
     if (iter == NULL)
     {
         printf("Bagli liste bos.");
-    }
-    else if (iter != NULL && iter->next == root)
-    {
-        printf("%d", iter->x);
     }
     else
     {
@@ -77,6 +75,8 @@ int bastir()
 int main()
 {
     ekle(10);
+    sil(10);
     ekle(20);
+    ekle(30);
     bastir();
 }
