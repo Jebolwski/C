@@ -20,7 +20,7 @@ int ekle(int num)
     {
         root = (n *)malloc(sizeof(n));
         root->x = num;
-        root->next = NULL;
+        root->next = root;
     }
     else
     {
@@ -30,7 +30,7 @@ int ekle(int num)
         }
         iter->next = (n *)malloc(sizeof(n));
         iter->next->x = num;
-        iter->next->next = NULL;
+        iter->next->next = root;
     }
 }
 
@@ -59,13 +59,13 @@ int bastir()
     {
         printf("Bagli liste bos.");
     }
-    else if (iter != NULL && iter->next == NULL)
+    else if (iter != NULL && iter->next == root)
     {
         printf("%d", iter->x);
     }
     else
     {
-        while (iter->next != NULL)
+        while (iter->next != root)
         {
             printf("%d ", iter->x);
             iter = iter->next;
@@ -78,6 +78,5 @@ int main()
 {
     ekle(10);
     ekle(20);
-    ekle(30);
     bastir();
 }
