@@ -68,7 +68,7 @@ int bastir()
             printf("%d ", iter->x);
             iter = iter->next;
         }
-        printf("%d", iter->x);
+        printf("%d ", iter->x);
     }
 }
 
