@@ -3,31 +3,19 @@
 int main()
 {
     int num;
-    for (int i = 1; i < 30; i++)
+    for (int i = 1; i < 9; i++)
     {
-        int fact_n = 1;
-        for (int j = 1; j <= i; j++)
+        int toplam = 1;
+        for (int j = 2 * i; j > i; j--)
         {
-            fact_n *= j;
+            toplam = toplam * j;
         }
-        int iki_n_ust = 1;
-        int iki_n = 2 * i;
-        for (int j = 1; j < i * 2 - 1; j++)
+        int fakt_n = 1;
+        for (int j = 1; j < i + 1; j++)
         {
-            iki_n_ust *= j;
+            fakt_n = fakt_n * j;
         }
-        float birinci = (float)iki_n_ust / (fact_n * fact_n);
-        int fact_n_arti_1 = 1;
-        for (int j = 1; j <= i + 1; j++)
-        {
-            fact_n_arti_1 *= j;
-        }
-        int fact_n_eksi_1 = 1;
-        for (int j = 1; j <= i - 1; j++)
-        {
-            fact_n_eksi_1 *= j;
-        }
-        float ikinci = (float)iki_n_ust / (fact_n_arti_1 * fact_n_eksi_1);
-        printf("Sayi : %f\n", (birinci - ikinci));
+        float sonuc = 1.0 / (i + 1) * (float)(toplam / fakt_n);
+        printf("sonuc: %.1f\n", sonuc);
     }
 }
