@@ -54,13 +54,60 @@ int factorial(int n)
     }
 }
 
+int cift_tek(int n)
+{
+    static int count = 0;
+    if (n > count)
+    {
+        if (count % 2 == 0)
+        {
+            printf("%d cifttir.\n", count);
+        }
+        else
+        {
+            printf("%d tektir.\n", count);
+        }
+        count++;
+        cift_tek(n);
+    }
+}
+
+int ozel_dizi(int dizi[], int uzunluk)
+{
+    int counter = 0;
+    for (int i = 0; i < uzunluk; i++)
+    {
+        if (dizi[i] == 5 && dizi[i + 1] != 5)
+        {
+            counter++;
+        }
+    }
+    if (counter == 5)
+    {
+        printf("Evet bu bir ozel dizi.");
+    }
+    else
+    {
+        printf("Hayir bu bir ozel dizi degil.");
+    }
+}
+
 int main()
 {
     int num;
     printf("Numara : ");
     scanf("%d", &num);
+    cift_tek(num);
     printf("Sayi toplamlari : %d\n", sayi_toplam(num));
     printf("Fibonacci(%d) : ", num);
     fibonacci(num);
     printf("\nFaktoriyel(%d) : %d ", num, factorial(num));
+    printf("\n");
+    int dizi[10];
+    for (int i = 0; i < 10; i++)
+    {
+        printf("Dizi[%d] : ", i);
+        scanf("%d", &dizi[i]);
+    }
+    ozel_dizi(dizi, 10);
 }
