@@ -3,9 +3,24 @@
 
 int main()
 {
+    int bayrak = 1;
+    int toplam = 0;
+    int sayi;
+
+    while (bayrak != 0)
+    {
+
+        printf("bir sayi giriniz : ");
+        scanf("%d", &sayi);
+        toplam += sayi;
+        printf("sayi girmeye devam etmek istiyor musunuz (1,0) : ");
+        scanf("%d", &bayrak);
+    }
+    printf("girdiginiz sayilarin toplami : %d", toplam);
+
     int satir;
     int sutun;
-    printf("satir : ");
+    printf("\nsatir : ");
     scanf("%d", &satir);
     printf("sutun : ");
     scanf("%d", &sutun);
