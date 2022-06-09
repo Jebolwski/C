@@ -3,20 +3,20 @@
 
 int main()
 {
-    int bayrak = 1;
-    int toplam = 0;
-    int sayi;
+    // int bayrak = 1;
+    // int toplam = 0;
+    // int sayi;
 
-    while (bayrak != 0)
-    {
+    // while (bayrak != 0)
+    // {
 
-        printf("bir sayi giriniz : ");
-        scanf("%d", &sayi);
-        toplam += sayi;
-        printf("sayi girmeye devam etmek istiyor musunuz (1,0) : ");
-        scanf("%d", &bayrak);
-    }
-    printf("girdiginiz sayilarin toplami : %d", toplam);
+    //     printf("bir sayi giriniz : ");
+    //     scanf("%d", &sayi);
+    //     toplam += sayi;
+    //     printf("sayi girmeye devam etmek istiyor musunuz (1,0) : ");
+    //     scanf("%d", &bayrak);
+    // }
+    // printf("girdiginiz sayilarin toplami : %d", toplam);
 
     int satir;
     int sutun;
@@ -24,10 +24,11 @@ int main()
     scanf("%d", &satir);
     printf("sutun : ");
     scanf("%d", &sutun);
-    char *ptr = (int **)malloc(sizeof(int *) * satir);
+    char **ptr;
+    ptr = (int **)malloc(sizeof(int *) * satir);
     for (int i = 0; i < satir; i++)
     {
-        ptr[i] = (int *)malloc(sizeof(int) * sutun);
+        *(ptr + i) = (int *)malloc(sizeof(int) * sutun);
     }
     for (int i = 0; i < satir; i++)
     {
@@ -35,6 +36,13 @@ int main()
         {
             printf("ptr[%d][%d] : ", i, j);
             scanf("%d", (*(ptr + i) + j));
+        }
+    }
+    for (int i = 0; i < satir; i++)
+    {
+        for (int j = 0; j < sutun; j++)
+        {
+            printf("%d\n", *(*(ptr + i) + j));
         }
     }
 
